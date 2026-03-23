@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Collections – Vastra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/collections.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-ornament">✦</span>
+      <span class="logo-text">VASTRA</span>
+      <span class="logo-ornament">✦</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="collections.html" class="active">Collections</a></li>
+      <li><a href="cart.html" class="nav-cart">
+        Cart <span class="cart-badge" id="cartCount">0</span>
+      </a></li>
+      <li><a href="login.html" class="nav-login-btn">Login</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger">☰</button>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <p class="section-tag">Explore Our Range</p>
+    <h1 class="page-title">Our Collections</h1>
+    <div class="gold-divider"></div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-cat="all">All</button>
+    <button class="filter-btn" data-cat="traditional">Traditional Wear</button>
+    <button class="filter-btn" data-cat="formal">Formal Wear</button>
+    <button class="filter-btn" data-cat="tshirts">T-Shirts</button>
+  </div>
+
+  <!-- PRODUCTS -->
+  <section class="all-products">
+    <div class="products-count" id="productsCount"></div>
+    <div class="products-grid" id="productsGrid"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">✦ VASTRA ✦</div>
+        <p>Traditional Men's Wear for the discerning Indian man.</p>
+      </div>
+      <div class="footer-links">
+        <h5>Quick Links</h5>
+        <a href="index.html">Home</a>
+        <a href="collections.html">Collections</a>
+        <a href="cart.html">Cart</a>
+        <a href="login.html">Login</a>
+      </div>
+      <div class="footer-links">
+        <h5>Categories</h5>
+        <a href="collections.html?cat=traditional">Traditional Wear</a>
+        <a href="collections.html?cat=formal">Formal Wear</a>
+        <a href="collections.html?cat=tshirts">T-Shirts</a>
+      </div>
+      <div class="footer-contact">
+        <h5>Contact</h5>
+        <p>📍 Mumbai, Maharashtra</p>
+        <p>📞 +91 98765 43210</p>
+        <p>✉️ hello@vastra.in</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Vastra. All rights reserved. Made with ♥ in India.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/collections.js"></script>
+</body>
+</html>

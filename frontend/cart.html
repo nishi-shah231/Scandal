@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart – Vastra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/collections.css">
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-ornament">✦</span>
+      <span class="logo-text">VASTRA</span>
+      <span class="logo-ornament">✦</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="cart.html" class="active nav-cart">Cart <span class="cart-badge" id="cartCount">0</span></a></li>
+      <li><a href="login.html" class="nav-login-btn">Login</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger">☰</button>
+  </nav>
+
+  <section class="cart-section">
+    <h1 class="cart-title">Your Cart</h1>
+    <div id="cartContent"></div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <p>© 2025 Vastra. All rights reserved. Made with ♥ in India.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>

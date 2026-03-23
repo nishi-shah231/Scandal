@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vastra – Traditional Men's Wear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-ornament">✦</span>
+      <span class="logo-text">VASTRA</span>
+      <span class="logo-ornament">✦</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="cart.html" class="nav-cart">
+        Cart <span class="cart-badge" id="cartCount">0</span>
+      </a></li>
+      <li><a href="login.html" class="nav-login-btn">Login</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger">☰</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-tag-line">
+        <span class="tag-line">✦ New Collection · 2025 ✦</span>
+      </div>
+      <h1 class="hero-title">
+        The Art of<br/>
+        <em>Traditional</em><br/>
+        Men's Wear
+      </h1>
+      <p class="hero-sub">Handcrafted elegance. Timeless silhouettes.<br/>Where heritage meets the modern man.</p>
+      <div class="hero-cta">
+        <a href="collections.html" class="btn-gold">Explore Collection</a>
+        <a href="#categories" class="btn-outline">Browse Categories</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>200+</strong><span>Products</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><strong>5K+</strong><span>Happy Customers</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><strong>100%</strong><span>Authentic</span></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-img-wrap">
+        <img src="https://images.unsplash.com/photo-1610189352649-6f5f6f77f2eb?w=700&q=80" alt="Traditional Wear" class="hero-img"/>
+        <div class="hero-img-border"></div>
+        <div class="hero-float-card">
+          <span>✦ Premium Quality</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>Kurta Sets</span><span class="dot">✦</span>
+      <span>Sherwanis</span><span class="dot">✦</span>
+      <span>Formal Shirts</span><span class="dot">✦</span>
+      <span>Trousers</span><span class="dot">✦</span>
+      <span>T-Shirts</span><span class="dot">✦</span>
+      <span>Nehru Jackets</span><span class="dot">✦</span>
+      <span>Kurta Sets</span><span class="dot">✦</span>
+      <span>Sherwanis</span><span class="dot">✦</span>
+      <span>Formal Shirts</span><span class="dot">✦</span>
+      <span>Trousers</span><span class="dot">✦</span>
+      <span>T-Shirts</span><span class="dot">✦</span>
+      <span>Nehru Jackets</span><span class="dot">✦</span>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <section class="categories" id="categories">
+    <div class="section-head">
+      <p class="section-tag">What We Offer</p>
+      <h2 class="section-title">Shop by Category</h2>
+      <div class="gold-divider"></div>
+    </div>
+    <div class="cat-grid">
+      <a href="collections.html?cat=traditional" class="cat-card cat-large">
+        <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=700&q=80" alt="Traditional Wear"/>
+        <div class="cat-overlay">
+          <span class="cat-tag">✦ Heritage Collection</span>
+          <h3>Traditional Wear</h3>
+          <p>Kurtas · Sherwanis · Nehru Jackets</p>
+          <span class="cat-arrow">Shop Now →</span>
+        </div>
+      </a>
+      <a href="collections.html?cat=formal" class="cat-card">
+        <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=500&q=80" alt="Formal Wear"/>
+        <div class="cat-overlay">
+          <span class="cat-tag">✦ Office Ready</span>
+          <h3>Formal Wear</h3>
+          <p>Shirts · Trousers · Blazers</p>
+          <span class="cat-arrow">Shop Now →</span>
+        </div>
+      </a>
+      <a href="collections.html?cat=tshirts" class="cat-card">
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&q=80" alt="T-Shirts"/>
+        <div class="cat-overlay">
+          <span class="cat-tag">✦ Casual Comfort</span>
+          <h3>T-Shirts</h3>
+          <p>Premium · Printed · Solid</p>
+          <span class="cat-arrow">Shop Now →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="featured">
+    <div class="section-head">
+      <p class="section-tag">Handpicked For You</p>
+      <h2 class="section-title">Featured Products</h2>
+      <div class="gold-divider"></div>
+    </div>
+    <div class="products-grid" id="featuredGrid"></div>
+    <div class="view-all-wrap">
+      <a href="collections.html" class="btn-gold">View All Products</a>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why-us">
+    <div class="why-bg-text">VASTRA</div>
+    <div class="section-head">
+      <p class="section-tag">Why Choose Us</p>
+      <h2 class="section-title">The Vastra Promise</h2>
+      <div class="gold-divider"></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🧵</div>
+        <h4>Handcrafted Quality</h4>
+        <p>Every piece crafted with premium fabrics from India's finest weavers.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🚚</div>
+        <h4>Fast Delivery</h4>
+        <p>Pan-India delivery in 3–5 business days. Free shipping above ₹999.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">↩️</div>
+        <h4>Easy Returns</h4>
+        <p>7-day hassle-free return policy. No questions asked.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">✦</div>
+        <h4>Authentic Heritage</h4>
+        <p>Designs rooted in Indian tradition, tailored for the modern man.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMO BANNER -->
+  <section class="promo-banner">
+    <div class="promo-content">
+      <p class="promo-tag">✦ Limited Time Offer ✦</p>
+      <h2>Get 20% Off on Your First Order</h2>
+      <p class="promo-sub">Use code <strong>VASTRA20</strong> at checkout</p>
+      <a href="collections.html" class="btn-gold-dark">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">✦ VASTRA ✦</div>
+        <p>Traditional Men's Wear for the discerning Indian man. Rooted in heritage, styled for today.</p>
+      </div>
+      <div class="footer-links">
+        <h5>Quick Links</h5>
+        <a href="index.html">Home</a>
+        <a href="collections.html">Collections</a>
+        <a href="cart.html">Cart</a>
+        <a href="login.html">Login</a>
+      </div>
+      <div class="footer-links">
+        <h5>Categories</h5>
+        <a href="collections.html?cat=traditional">Traditional Wear</a>
+        <a href="collections.html?cat=formal">Formal Wear</a>
+        <a href="collections.html?cat=tshirts">T-Shirts</a>
+      </div>
+      <div class="footer-contact">
+        <h5>Contact</h5>
+        <p>📍 Mumbai, Maharashtra</p>
+        <p>📞 +91 98765 43210</p>
+        <p>✉️ hello@vastra.in</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Vastra. All rights reserved. Made with ♥ in India.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
