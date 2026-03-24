@@ -11,6 +11,7 @@ A full-stack e-commerce website for traditional Indian menswear.
 ```
 shop/
 ├── frontend/
+|   ├── assets              ← Images of Products
 │   ├── index.html          ← Home page
 │   ├── collections.html    ← All products with filter
 │   ├── cart.html           ← Cart & order summary
@@ -32,7 +33,7 @@ shop/
     │   ├── auth.js         ← /api/auth/login, /api/auth/register
     │   ├── products.js     ← /api/products
     │   └── cart.js         ← /api/cart
-    └── .env.example
+    └── .env
 ```
 
 ## Setup Instructions
