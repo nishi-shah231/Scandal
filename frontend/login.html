@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login – Vastra</title>
+  <title>Login – Scandal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
@@ -14,7 +14,7 @@
   <nav class="navbar" id="navbar">
     <div class="nav-logo">
       <span class="logo-ornament">✦</span>
-      <span class="logo-text">VASTRA</span>
+      <span class="logo-text">Scandal</span>
       <span class="logo-ornament">✦</span>
     </div>
     <ul class="nav-links" id="navLinks">
@@ -28,7 +28,7 @@
 
   <section class="login-section">
     <div class="login-card" id="loginCard">
-      <div class="login-logo">✦ VASTRA ✦</div>
+      <div class="login-logo">✦ Scandal ✦</div>
       <p class="login-tagline">Traditional Men's Wear</p>
       <h2 id="formTitle">Welcome Back</h2>
 
@@ -76,7 +76,7 @@
 
   <script src="js/main.js"></script>
   <script>
-  if (localStorage.getItem('vastra_user')) {
+  if (localStorage.getItem('Scandal_user')) {
     window.location.href = 'index.html';
   }
 </script>
@@ -108,8 +108,8 @@
         });
         const data = await res.json();
         if (res.ok) {
-          localStorage.setItem('vastra_user', JSON.stringify(data.user));
-          localStorage.setItem('vastra_token', data.token);
+          localStorage.setItem('Scandal_user', JSON.stringify(data.user));
+          localStorage.setItem('Scandal_token', data.token);
           showToast('Login successful! Welcome back.');
           setTimeout(() => window.location.href = 'index.html', 1200);
         } else {

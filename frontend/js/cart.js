@@ -85,12 +85,7 @@ function removeFromCart(productId) {
 }
 
 function placeOrder() {
-  showToast('🎉 Order placed successfully! Thank you for shopping with Vastra.');
-  localStorage.removeItem('vastra_cart');
-  updateCartCount();
-  setTimeout(() => {
-    renderCart();
-  }, 1500);
+  window.location.href = 'payment.html';
 }
 
 document.addEventListener('DOMContentLoaded', renderCart);

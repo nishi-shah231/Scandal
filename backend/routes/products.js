@@ -15,7 +15,7 @@ const products = [
   { id: 10, name: "Linen Formal Shirt", category: "formal", price: 1199, original: 1699, image: "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=500&q=80", badge: "" },
   { id: 11, name: "Charcoal Trousers", category: "formal", price: 1699, original: 2299, image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=500&q=80", badge: "" },
   { id: 12, name: "Oxford Formal Shirt", category: "formal", price: 1099, original: 1599, image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=500&q=80", badge: "Sale" },
-  { id: 13, name: "Premium Solid Tee", category: "tshirts", price: 499, original: 799, image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&q=80", badge: "Bestseller" },
+  { id: 13, name: "Premium Solid Tee", category: "tshirts", price: 499, original: 799, image: "assets/images/tshirt.jpg", badge: "Bestseller" },
   { id: 14, name: "Graphic Print Tee", category: "tshirts", price: 649, original: 999, image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=500&q=80", badge: "New" },
   { id: 15, name: "Polo T-Shirt", category: "tshirts", price: 799, original: 1199, image: "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=500&q=80", badge: "" },
   { id: 16, name: "Oversized Streetwear", category: "tshirts", price: 899, original: 1299, image: "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=500&q=80", badge: "Trending" },
