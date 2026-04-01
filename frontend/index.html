@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scandal – Traditional Men's Wear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/stylist.css">
+  <link rel="stylesheet" href="css/size-consultant.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <a href="index.html">
+        <img src="assets/images/scandal_logo.jpeg" alt="Scandal Logo">
+      </a>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="cart.html" class="nav-cart">
+        Cart <span class="cart-badge" id="cartCount">0</span>
+      </a></li>
+      <li><a href="login.html" class="nav-login-btn">Login</a></li>
+      <li><button id="themeToggle" class="theme-toggle" title="Toggle Dark Mode">🌙</button></li>
+    </ul>
+    <button class="hamburger" id="hamburger">☰</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-tag-line">
+        <span class="tag-line">✦ New Collection · 2026 ✦</span>
+      </div>
+      <h1 class="hero-title">
+        The Art of<br/>
+        <em>Traditional</em><br/>
+        Men's Wear
+      </h1>
+      <p class="hero-sub">Handcrafted elegance. Timeless silhouettes.<br/>Where heritage meets the modern man.</p>
+      <div class="hero-cta">
+        <a href="collections.html" class="btn-gold">Explore Collection</a>
+        <a href="#categories" class="btn-outline">Browse Categories</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>200+</strong><span>Products</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><strong>5K+</strong><span>Happy Customers</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><strong>100%</strong><span>Authentic</span></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-img-wrap">
+        <img src="assets/images/hero.jpg" alt="Traditional Wear" class="hero-img"/>
+        <div class="hero-img-border"></div>
+        <div class="hero-float-card">
+          <span>✦ Premium Quality</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>Kurta Sets</span><span class="dot">✦</span>
+      <span>Sherwanis</span><span class="dot">✦</span>
+      <span>Formal Shirts</span><span class="dot">✦</span>
+      <span>Trousers</span><span class="dot">✦</span>
+      <span>T-Shirts</span><span class="dot">✦</span>
+      <span>Nehru Jackets</span><span class="dot">✦</span>
+      <span>Kurta Sets</span><span class="dot">✦</span>
+      <span>Sherwanis</span><span class="dot">✦</span>
+      <span>Formal Shirts</span><span class="dot">✦</span>
+      <span>Trousers</span><span class="dot">✦</span>
+      <span>T-Shirts</span><span class="dot">✦</span>
+      <span>Nehru Jackets</span><span class="dot">✦</span>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <section class="categories" id="categories">
+    <div class="section-head">
+      <p class="section-tag">What We Offer</p>
+      <h2 class="section-title">Shop by Category</h2>
+      <div class="gold-divider"></div>
+    </div>
+    <div class="cat-grid">
+      <a href="collections.html?cat=traditional" class="cat-card cat-large">
+        <img src="assets/images/traditional.jpg" alt="Traditional Wear"/>
+        <div class="cat-overlay">
+          <span class="cat-tag">✦ Heritage Collection</span>
+          <h3>Traditional Wear</h3>
+          <p>Kurtas · Sherwanis · Nehru Jackets</p>
+          <span class="cat-arrow">Shop Now →</span>
+        </div>
+      </a>
+      <a href="collections.html?cat=formal" class="cat-card">
+        <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=500&q=80" alt="Formal Wear"/>
+        <div class="cat-overlay">
+          <span class="cat-tag">✦ Office Ready</span>
+          <h3>Formal Wear</h3>
+          <p>Shirts · Trousers · Blazers</p>
+          <span class="cat-arrow">Shop Now →</span>
+        </div>
+      </a>
+      <a href="collections.html?cat=tshirts" class="cat-card">
+        <img src="assets/images/tshirt.jpg" alt="T-Shirts"/>
+        <div class="cat-overlay">
+          <span class="cat-tag">✦ Casual Comfort</span>
+          <h3>T-Shirts</h3>
+          <p>Premium · Printed · Solid</p>
+          <span class="cat-arrow">Shop Now →</span>
+        </div>
+      </a>
+      <a href="collections.html?cat=jeans" class="cat-card">
+        <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=500&q=80" alt="Jeans"/>
+        <div class="cat-overlay">
+          <span class="cat-tag">✦ Denim Collection</span>
+          <h3>Jeans</h3>
+          <p>Slim · Straight · Relaxed Fit</p>
+          <span class="cat-arrow">Shop Now →</span>
+        </div>
+      </a>
+      <a href="collections.html?cat=accessories" class="cat-card">
+        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&q=80" alt="Accessories"/>
+        <div class="cat-overlay">
+          <span class="cat-tag">✦ Finishing Touches</span>
+          <h3>Accessories</h3>
+          <p>Belts · Ties · Cufflinks · More</p>
+          <span class="cat-arrow">Shop Now →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="featured">
+    <div class="section-head">
+      <p class="section-tag">Handpicked For You</p>
+      <h2 class="section-title">Featured Products</h2>
+      <div class="gold-divider"></div>
+    </div>
+    <div class="products-grid" id="featuredGrid"></div>
+    <div class="view-all-wrap">
+      <a href="collections.html" class="btn-gold">View All Products</a>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why-us">
+    <div class="why-bg-text">Scandal</div>
+    <div class="section-head">
+      <p class="section-tag">Why Choose Us</p>
+      <h2 class="section-title">The Scandal Promise</h2>
+      <div class="gold-divider"></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🧵</div>
+        <h4>Handcrafted Quality</h4>
+        <p>Every piece crafted with premium fabrics from India's finest weavers.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🚚</div>
+        <h4>Fast Delivery</h4>
+        <p>Pan-India delivery in 3–5 business days. Free shipping above ₹999.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">↩️</div>
+        <h4>Easy Returns</h4>
+        <p>7-day hassle-free return policy. No questions asked.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">✦</div>
+        <h4>Authentic Heritage</h4>
+        <p>Designs rooted in Indian tradition, tailored for the modern man.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <section class="store-section">
+    <div class="store-container">
+      <div class="section-head">
+        <p class="section-tag">Visit Us</p>
+        <h2 class="section-title">Our Flagship Store</h2>
+        <div class="gold-divider"></div>
+      </div>
+      <div class="map-frame">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.1765582645244!2d72.9731169!3d19.1874893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b920293eb343%3A0xe0aecd5466514939!2sSCANDAL%20MEN'S%20WEAR!5e0!3m2!1sen!2sin!4v1774968335358!5m2!1sen!2sin" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">✦ Scandal ✦</div>
+        <p>Traditional Men's Wear for the discerning Indian man. Rooted in heritage, styled for today.</p>
+      </div>
+      <div class="footer-links">
+        <h5>Quick Links</h5>
+        <a href="index.html">Home</a>
+        <a href="collections.html">Collections</a>
+        <a href="cart.html">Cart</a>
+        <a href="login.html">Login</a>
+      </div>
+      <div class="footer-links">
+        <h5>Categories</h5>
+        <a href="collections.html?cat=traditional">Traditional Wear</a>
+        <a href="collections.html?cat=formal">Formal Wear</a>
+        <a href="collections.html?cat=tshirts">T-Shirts</a>
+        <a href="collections.html?cat=jeans">Jeans</a>
+        <a href="collections.html?cat=accessories">Accessories</a>
+      </div>
+      <div class="footer-contact">
+        <h5>Contact</h5>
+        <p>📍 Thane, Maharashtra</p>
+        <p>📞 +91 9820757675</p>
+        <p>✉️ scandal17@gmail.com</p>
+        <p>📸 <a href="https://instagram.com/scandal_traditional" target="_blank">scandal_traditional</a></p>
+        <p>👥 <a href="https://facebook.com/scandal.wear" target="_blank">Facebook</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Scandal. All rights reserved. Made with ♥ in India.</p>
+    </div>
+  </footer>
+
+
+  <!-- REVIEW MODAL -->
+  <div id="reviewModal" class="review-modal">
+    <div class="review-content">
+      <div class="review-header">
+        <h3 id="modalProductName">Product Reviews</h3>
+        <button class="close-review" onclick="closeReviewModal()">&times;</button>
+      </div>
+      <div class="review-body">
+        <div id="reviewList" class="review-list">
+          <!-- Reviews will be loaded here -->
+        </div>
+
+        <div id="addReviewSection" class="add-review-form">
+          <h4>Add a Review</h4>
+          <div class="star-rating" id="starRating">
+            <span onclick="setRating(1)">★</span>
+            <span onclick="setRating(2)">★</span>
+            <span onclick="setRating(3)">★</span>
+            <span onclick="setRating(4)">★</span>
+            <span onclick="setRating(5)">★</span>
+          </div>
+          <div class="review-form-group">
+            <label>Your Feedback</label>
+            <textarea id="reviewComment" placeholder="Write your thoughts about this product..."></textarea>
+          </div>
+          <button id="submitReviewBtn" class="btn-submit-review" onclick="submitReview()">Post Review</button>
+        </div>
+        <div id="loginToReview" style="display:none; text-align:center; padding:20px; color:var(--text-secondary); border-top: 1px solid var(--border-secondary);">
+          <p>Please <a href="login.html" style="color:var(--gold); font-weight:600;">Login</a> to post a review.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI STYLIST FAB -->
+  <div class="ai-fab" onclick="openStylistModal()">
+    <span class="fab-label">AI Wardrobe Stylist</span>
+    <span class="fab-icon">👔</span>
+  </div>
+
+  <!-- AI STYLIST MODAL -->
+  <div id="stylistModal" class="stylist-modal">
+    <div class="stylist-container">
+      <div class="stylist-header">
+        <h2>AI Wardrobe Stylist</h2>
+        <button class="close-stylist" onclick="closeStylistModal()">&times;</button>
+      </div>
+      <div class="stylist-progress">
+        <div id="stylistProgress" class="progress-fill"></div>
+      </div>
+      <div class="stylist-body">
+        <!-- Step 1: Occasion -->
+        <div class="stylist-step active">
+          <h3 class="step-question">Which occasion are you dressing for?</h3>
+          <div class="options-grid">
+            <div class="option-card" onclick="selectStylistOption('occasion', 'wedding', this)">
+              <span class="option-icon">🎊</span>
+              <h5>Wedding / Festive</h5>
+            </div>
+            <div class="option-card" onclick="selectStylistOption('occasion', 'formal', this)">
+              <span class="option-icon">💼</span>
+              <h5>Work / Formal</h5>
+            </div>
+            <div class="option-card" onclick="selectStylistOption('occasion', 'brunch', this)">
+              <span class="option-icon">☀️</span>
+              <h5>Brunch / Event</h5>
+            </div>
+            <div class="option-card" onclick="selectStylistOption('occasion', 'casual', this)">
+              <span class="option-icon">👟</span>
+              <h5>Casual Wear</h5>
+            </div>
+          </div>
+        </div>
+        <!-- Step 2: Style -->
+        <div class="stylist-step">
+          <h3 class="step-question">What's your style preference?</h3>
+          <div class="options-grid">
+            <div class="option-card" onclick="selectStylistOption('style', 'classic', this)">
+              <span class="option-icon">🎩</span>
+              <h5>Timeless / Classic</h5>
+            </div>
+            <div class="option-card" onclick="selectStylistOption('style', 'modern', this)">
+              <span class="option-icon">⚡</span>
+              <h5>Sleek / Modern</h5>
+            </div>
+            <div class="option-card" onclick="selectStylistOption('style', 'bold', this)">
+              <span class="option-icon">🔥</span>
+              <h5>Striking / Bold</h5>
+            </div>
+          </div>
+        </div>
+        <!-- Step 3: Recommendation -->
+        <div class="stylist-step">
+          <h3 class="step-question" style="margin-bottom: 10px;">Our Signature Recommendation</h3>
+          <div id="recommendationContainer">
+            <!-- Recommendations will be injected here -->
+          </div>
+        </div>
+      </div>
+      <div class="stylist-actions">
+        <div id="stylistNormalActions" style="display: flex; justify-content: space-between; width: 100%;">
+          <button id="btnBackStylist" class="btn-nav-stylist btn-back" onclick="prevStylistStep()" style="visibility: hidden;">Back</button>
+          <button id="btnNextStylist" class="btn-nav-stylist btn-next" onclick="nextStylistStep()">Next</button>
+        </div>
+        <div id="stylistFinishActions" style="display: none; width: 100%; text-align: center;">
+          <button class="btn-nav-stylist btn-back" onclick="resetStylist()" style="margin-right: 15px;">Restart</button>
+          <button class="btn-nav-stylist btn-next" onclick="closeStylistModal()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIZE CONSULTANT MODAL -->
+  <div id="sizeModal" class="size-modal">
+    <div class="size-container">
+      <div class="size-header">
+        <h3>Find My Fit</h3>
+        <button class="close-size" onclick="closeSizeModal()">&times;</button>
+      </div>
+      <div class="unit-toggle-wrap">
+        <div class="unit-toggle">
+          <button class="toggle-btn active" data-unit="metric" onclick="setSizeUnit('metric')">Metric</button>
+          <button class="toggle-btn" data-unit="imperial" onclick="setSizeUnit('imperial')">Imperial</button>
+        </div>
+      </div>
+      <div class="size-body">
+        <div class="size-form-group">
+          <label>Your Height</label>
+          <div id="metricInputs">
+            <input type="number" id="sizeHeightCm" class="modern-input" placeholder="Height in cm e.g. 175">
+          </div>
+          <div id="imperialInputs" class="size-input-row" style="display: none;">
+            <input type="number" id="sizeHeightFt" class="modern-input" placeholder="ft">
+            <input type="number" id="sizeHeightIn" class="modern-input" placeholder="in">
+          </div>
+        </div>
+        <div class="size-form-group">
+          <label id="weightLabel">Weight (kg)</label>
+          <input type="number" id="sizeWeight" class="modern-input" placeholder="e.g. 70">
+        </div>
+        <div class="size-form-group">
+          <label>Fit Preference</label>
+          <select id="sizePreference" class="modern-input">
+            <option value="regular">Regular Fit</option>
+            <option value="slim">Slim / Tight Fit</option>
+            <option value="relaxed">Relaxed / Loose Fit</option>
+          </select>
+        </div>
+        <button id="calculateBtn" class="btn-calculate-size" onclick="calculateSize()">Calculate My Size</button>
+
+        <div id="sizeResult" class="size-result">
+          <span class="confidence-badge" id="sizeConfidence">95% Match Confidence</span>
+          <p>We recommend size</p>
+          <span class="recommended-size" id="recommendedSizeText">M</span>
+          <button class="btn-apply-size" onclick="applyRecommendedSize()">Apply to Product</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/stylist.js"></script>
+  <script src="js/size-consultant.js"></script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login – Scandal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/collections.css">
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <a href="index.html">
+        <img src="assets/images/scandal_logo.jpeg" alt="Scandal Logo">
+      </a>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="cart.html" class="nav-cart">Cart <span class="cart-badge" id="cartCount">0</span></a></li>
+      <li><a href="login.html" class="active nav-login-btn">Login</a></li>
+      <li><button id="themeToggle" class="theme-toggle" title="Toggle Dark Mode">🌙</button></li>
+    </ul>
+    <button class="hamburger" id="hamburger">☰</button>
+  </nav>
+
+  <section class="login-section">
+    <div class="login-card" id="loginCard">
+      <div class="login-logo">✦ Scandal ✦</div>
+      <p class="login-tagline">Traditional Men's Wear</p>
+      <h2 id="formTitle">Welcome Back</h2>
+
+      <div id="loginForm">
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="loginEmail" placeholder="you@email.com"/>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="loginPassword" placeholder="••••••••"/>
+        </div>
+        <button class="form-submit" onclick="handleLogin()">Login</button>
+        <p class="login-switch">
+          Don't have an account? <a href="#" onclick="toggleForm()">Sign up</a>
+        </p>
+        <p class="skip-link">
+          Just browsing? <a href="index.html">Continue without login →</a>
+        </p>
+      </div>
+
+      <div id="registerForm" style="display:none">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="regName" placeholder="Your name"/>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="regEmail" placeholder="you@email.com"/>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="regPassword" placeholder="••••••••"/>
+        </div>
+        <button class="form-submit" onclick="handleRegister()">Create Account</button>
+        <p class="login-switch">
+          Already have an account? <a href="#" onclick="toggleForm()">Login</a>
+        </p>
+        <p class="skip-link">
+          Just browsing? <a href="index.html">Continue without login →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="store-section">
+    <div class="store-container">
+      <div class="section-head">
+        <p class="section-tag">Visit Us</p>
+        <h2 class="section-title">Our Flagship Store</h2>
+        <div class="gold-divider"></div>
+      </div>
+      <div class="map-frame">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.8767937965!2d72.9731169!3d19.1874893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b936d6a2f141%3A0xe6bf4a3f4e1f7d3a!2sSCANDAL%20MEN&#39;S%20WEAR!5e0!3m2!1sen!2sin!4v1711894000000!5m2!1sen!2sin" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section> -->
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">✦ Scandal ✦</div>
+        <p>Traditional Men's Wear for the discerning Indian man. Rooted in heritage, styled for today.</p>
+      </div>
+      <div class="footer-links">
+        <h5>Quick Links</h5>
+        <a href="index.html">Home</a>
+        <a href="collections.html">Collections</a>
+        <a href="cart.html">Cart</a>
+        <a href="login.html" class="active">Login</a>
+      </div>
+      <div class="footer-contact">
+        <h5>Contact</h5>
+        <p>📍 Thane, Maharashtra</p>
+        <p>📞 +91 9820757675</p>
+        <p>✉️ scandal17@gmail.com</p>
+        <p>📸 <a href="https://instagram.com/scandal_traditional" target="_blank">scandal_traditional</a></p>
+        <p>👥 <a href="https://facebook.com/scandal.wear" target="_blank">Facebook</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Scandal. All rights reserved. Made with ♥ in India.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const redirectParams = urlParams.get('redirect') || 'index.html';
+  if (localStorage.getItem('vastra_user')) {
+    window.location.href = redirectParams;
+  }
+</script>
+  <script> 
+    function toggleForm() {
+      const loginF = document.getElementById('loginForm');
+      const regF = document.getElementById('registerForm');
+      const title = document.getElementById('formTitle');
+      if (loginF.style.display === 'none') {
+        loginF.style.display = 'block';
+        regF.style.display = 'none';
+        title.textContent = 'Welcome Back';
+      } else {
+        loginF.style.display = 'none';
+        regF.style.display = 'block';
+        title.textContent = 'Create Account';
+      }
+    }
+
+    async function handleLogin() {
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+      if (!email || !password) { showToast('Please fill in all fields'); return; }
+      try {
+        const res = await fetch('http://localhost:5001/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          localStorage.setItem('vastra_user', JSON.stringify(data.user));
+          localStorage.setItem('vastra_token', data.token);
+          showToast('Login successful! Welcome back.');
+          const urlParams = new URLSearchParams(window.location.search);
+          const redirectParams = urlParams.get('redirect') || 'index.html';
+          setTimeout(() => window.location.href = redirectParams, 1200);
+        } else {
+          showToast(data.message || 'Login failed. Check your credentials.');
+        }
+      } catch (e) {
+        showToast('Could not connect to server. Please try again.');
+      }
+    }
+
+    async function handleRegister() {
+      const name = document.getElementById('regName').value;
+      const email = document.getElementById('regEmail').value;
+      const password = document.getElementById('regPassword').value;
+      if (!name || !email || !password) { showToast('Please fill in all fields'); return; }
+      try {
+        const res = await fetch('http://localhost:5001/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, password })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          showToast('Account created! Please log in.');
+          setTimeout(() => toggleForm(), 1200);
+        } else {
+          showToast(data.message || 'Registration failed.');
+        }
+      } catch (e) {
+        showToast('Could not connect to server. Please try again.');
+      }
+    }
+  </script>
+</body>
+</html>

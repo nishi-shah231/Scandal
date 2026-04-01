@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart – Scandal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/collections.css">
+</head>
+
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <a href="index.html">
+        <img src="assets/images/scandal_logo.jpeg" alt="Scandal Logo">
+      </a>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="cart.html" class="active nav-cart">Cart <span class="cart-badge" id="cartCount">0</span></a></li>
+      <li><a href="login.html" class="nav-login-btn">Login</a></li>
+      <li><button id="themeToggle" class="theme-toggle" title="Toggle Dark Mode">🌙</button></li>
+    </ul>
+    <button class="hamburger" id="hamburger">☰</button>
+  </nav>
+
+  <section class="cart-section">
+    <h1 class="cart-title">Your Cart</h1>
+    <div id="cartContent"></div>
+  </section>
+
+  <!-- <section class="store-section">
+    <div class="store-container">
+      <div class="section-head">
+        <p class="section-tag">Visit Us</p>
+        <h2 class="section-title">Our Flagship Store</h2>
+        <div class="gold-divider"></div>
+      </div>
+      <div class="map-frame">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.8767937965!2d72.9731169!3d19.1874893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b936d6a2f141%3A0xe6bf4a3f4e1f7d3a!2sSCANDAL%20MEN&#39;S%20WEAR!5e0!3m2!1sen!2sin!4v1711894000000!5m2!1sen!2sin" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section> -->
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">✦ Scandal ✦</div>
+        <p>Traditional Men's Wear for the discerning Indian man.</p>
+      </div>
+      <div class="footer-links">
+        <h5>Quick Links</h5>
+        <a href="index.html">Home</a>
+        <a href="collections.html">Collections</a>
+        <a href="cart.html">Cart</a>
+        <a href="login.html">Login</a>
+      </div>
+      <div class="footer-links">
+        <h5>Categories</h5>
+        <a href="collections.html?cat=traditional">Traditional Wear</a>
+        <a href="collections.html?cat=formal">Formal Wear</a>
+        <a href="collections.html?cat=tshirts">T-Shirts</a>
+      </div>
+      <div class="footer-contact">
+        <h5>Contact</h5>
+        <p>📍 Thane, Maharashtra</p>
+        <p>📞 +91 9820757675</p>
+        <p>✉️ scandal17@gmail.com</p>
+        <p>📸 <a href="https://instagram.com/scandal_traditional" target="_blank">scandal_traditional</a></p>
+        <p>👥 <a href="https://facebook.com/scandal.wear" target="_blank">Facebook</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Scandal. All rights reserved. Made with ♥ in India.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+
+</html>

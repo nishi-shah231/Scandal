@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Orders – Scandal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .orders-section { padding: 100px 5% 60px; min-height: 80vh; max-width: 900px; margin: 0 auto; }
+    .orders-title { 
+      font-family: var(--font-display); 
+      font-size: 2.5rem; 
+      color: var(--text-primary); 
+      margin-bottom: 32px; 
+      text-transform: uppercase; 
+      letter-spacing: 0.1em; 
+      border-bottom: 1.5px solid var(--gold); 
+      padding-bottom: 20px;
+      text-align: center;
+    }
+    
+    .order-card { 
+      background: var(--bg-card); 
+      border: 1px solid var(--border-secondary); 
+      border-radius: 12px; 
+      margin-bottom: 32px; 
+      box-shadow: var(--card-shadow); 
+      overflow: hidden; 
+      transition: transform var(--transition);
+    }
+    .order-card:hover { transform: translateY(-4px); }
+    
+    .order-header { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      background: var(--bg-secondary); 
+      padding: 18px 24px; 
+      border-bottom: 1px solid var(--border-secondary); 
+    }
+    .order-header div p { margin: 0; font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em; }
+    .order-header div h4 { font-family: var(--font-body); font-size: 1.1rem; color: var(--text-primary); font-weight: 600; margin-top: 4px; }
+    .order-status { font-weight: 700; font-size: 0.85rem; padding: 8px 16px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.1em; }
+    
+    .status-pending { background: #fff3cd; color: #856404; }
+    .status-success { background: #d4edda; color: #155724; }
+    .status-failed { background: #f8d7da; color: #721c24; }
+    
+    [data-theme="dark"] .status-pending { background: #332b00; color: #ffeb3b; }
+    [data-theme="dark"] .status-success { background: #1b332b; color: #4caf50; }
+    [data-theme="dark"] .status-failed { background: #331b1b; color: #f44336; }
+
+    .order-body { padding: 32px; }
+    .order-item-list { display: flex; flex-direction: column; gap: 24px; }
+    .order-item-list .item { display: flex; gap: 20px; align-items: center; border-bottom: 1px solid var(--border-secondary); padding-bottom: 24px; }
+    .order-item-list .item:last-child { border-bottom: none; padding-bottom: 0; }
+    .item-img { width: 90px; height: 90px; object-fit: cover; border-radius: 8px; background: var(--bg-secondary); border: 1px solid var(--border-secondary); }
+    .item-info h5 { margin: 0 0 6px; font-size: 1.1rem; color: var(--text-primary); font-family: var(--font-display); }
+    .item-info p { margin: 0; font-size: 0.9rem; color: var(--text-secondary); }
+    
+    .order-footer { background: var(--bg-card); padding: 20px 24px; border-top: 1px solid var(--border-secondary); text-align: right; }
+    .order-footer h4 { margin: 0; font-size: 1.3rem; color: var(--text-primary); font-family: var(--font-body); font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar document-nav" id="navbar">
+    <div class="nav-logo">
+      <a href="index.html">
+        <img src="assets/images/scandal_logo.jpeg" alt="Scandal Logo">
+      </a>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="cart.html" class="nav-cart">Cart <span class="cart-badge" id="cartCount">0</span></a></li>
+      <li><a href="login.html" class="nav-login-btn">Login</a></li>
+      <li><button id="themeToggle" class="theme-toggle" title="Toggle Dark Mode">🌙</button></li>
+    </ul>
+  </nav>
+
+  <section class="orders-section">
+    <h1 class="orders-title">My Orders</h1>
+    <div id="ordersContainer">
+      <p style="color:var(--gray); text-align:center; padding:40px;">Loading your orders...</p>
+    </div>
+  </section>
+
+  <!-- <section class="store-section">
+    <div class="store-container">
+      <div class="section-head">
+        <p class="section-tag">Visit Us</p>
+        <h2 class="section-title">Our Flagship Store</h2>
+        <div class="gold-divider"></div>
+      </div>
+      <div class="map-frame">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.8767937965!2d72.9731169!3d19.1874893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b936d6a2f141%3A0xe6bf4a3f4e1f7d3a!2sSCANDAL%20MEN&#39;S%20WEAR!5e0!3m2!1sen!2sin!4v1711894000000!5m2!1sen!2sin" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section> -->
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">✦ Scandal ✦</div>
+        <p>Traditional Men's Wear for the discerning Indian man. Rooted in heritage, styled for today.</p>
+      </div>
+      <div class="footer-links">
+        <h5>Quick Links</h5>
+        <a href="index.html">Home</a>
+        <a href="collections.html">Collections</a>
+        <a href="cart.html">Cart</a>
+        <a href="login.html">Login</a>
+      </div>
+      <div class="footer-contact">
+        <h5>Contact</h5>
+        <p>📍 Thane, Maharashtra</p>
+        <p>📞 +91 9820757675</p>
+        <p>✉️ scandal17@gmail.com</p>
+        <p>📸 <a href="https://instagram.com/scandal_traditional" target="_blank">scandal_traditional</a></p>
+        <p>👥 <a href="https://facebook.com/scandal.wear" target="_blank">Facebook</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Scandal. All rights reserved. Made with ♥ in India.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/orders.js"></script>
+</body>
+</html>

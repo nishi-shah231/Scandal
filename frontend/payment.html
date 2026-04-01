@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment – Scandal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .payment-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 5% 60px;
+      background: linear-gradient(135deg, var(--bg-primary) 60%, var(--gold-pale) 100%);
+    }
+
+    .payment-layout {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 40px;
+      width: 100%;
+      max-width: 900px;
+      align-items: start;
+    }
+
+    /* ORDER SUMMARY BOX */
+    .order-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-primary);
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .order-box h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-secondary);
+    }
+
+    .order-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    .order-item span:last-child {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .order-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      border-top: 1px solid var(--border-secondary);
+      padding-top: 16px;
+      margin-top: 8px;
+    }
+
+    .order-total span:last-child {
+      color: var(--gold-dark);
+    }
+
+    .secure-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      background: var(--bg-secondary);
+      padding: 10px 14px;
+      border-radius: 6px;
+      border: 1px solid var(--border-secondary);
+    }
+
+    /* PAYMENT CARD */
+    .payment-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-primary);
+      border-radius: 12px;
+      padding: 36px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .payment-card h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+    }
+
+    /* TABS */
+    .pay-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 28px;
+      border: 1.5px solid var(--border-primary);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .pay-tab {
+      flex: 1;
+      padding: 12px;
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      border: none;
+      transition: all var(--transition);
+    }
+
+    .pay-tab.active {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    /* ADDRESS LIST */
+    .address-list {
+      margin-bottom: 24px;
+    }
+
+    .address-card {
+      border: 1px solid var(--border-secondary);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: all var(--transition);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--bg-primary);
+    }
+
+    .address-card:hover {
+      border-color: var(--border-primary);
+    }
+
+    .address-card.selected {
+      border-color: var(--gold);
+      background: var(--gold-pale);
+    }
+
+    .address-details p {
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .address-details p strong {
+      color: var(--text-primary);
+      margin-right: 8px;
+    }
+
+    /* ADDRESS FORM MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    .modal-content {
+      background: var(--bg-card);
+      padding: 24px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 400px;
+      border: 1px solid var(--border-primary);
+    }
+
+    .pay-form .form-group {
+      margin-bottom: 16px;
+    }
+
+    .pay-form label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .pay-form input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border-secondary);
+      border-radius: 6px;
+      font-size: 0.95rem;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+    }
+
+    .pay-form input:focus {
+      border-color: var(--gold);
+      outline: none;
+    }
+
+    /* PAY BUTTON */
+    .pay-btn {
+      width: 100%;
+      padding: 16px;
+      background: var(--gold);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .pay-btn:hover {
+      background: var(--gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(201, 168, 76, 0.3);
+    }
+
+    .pay-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    /* SUCCESS OVERLAY */
+    .success-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(18, 18, 18, 0.9);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .success-overlay.show {
+      display: flex;
+    }
+
+    .success-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 56px 48px;
+      text-align: center;
+      max-width: 420px;
+      width: 90%;
+      border: 1px solid var(--border-primary);
+    }
+
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin: 0 auto 24px;
+      color: var(--white);
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <a href="index.html">
+        <img src="assets/images/scandal_logo.jpeg" alt="Scandal Logo">
+      </a>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="cart.html" class="nav-cart">Cart <span class="cart-badge" id="cartCount">0</span></a></li>
+      <li><a href="login.html" class="nav-login-btn">Login</a></li>
+      <li><button id="themeToggle" class="theme-toggle" title="Toggle Dark Mode">🌙</button></li>
+    </ul>
+    <button class="hamburger" id="hamburger">☰</button>
+  </nav>
+
+  <section class="payment-section">
+    <div class="payment-layout">
+
+      <!-- ORDER SUMMARY -->
+      <div class="order-box">
+        <h3>Order Summary</h3>
+        <div id="orderItems"></div>
+        <div class="order-total">
+          <span>Total Payable</span>
+          <span id="orderTotal">₹0</span>
+        </div>
+        <div class="secure-badge">
+          🔒 100% Secure Payment · SSL Encrypted
+        </div>
+      </div>
+
+      <!-- PAYMENT FORM -->
+      <div class="payment-card">
+        <h2>Checkout</h2>
+
+        <div style="margin-bottom:24px; padding-bottom:24px; border-bottom:1px solid var(--gray-light);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+            <h4 style="font-family:var(--font-display); font-size:1.1rem; margin:0;">Delivery Address</h4>
+            <button onclick="document.getElementById('addressModal').classList.add('show')"
+              style="background:none; border:none; color:var(--gold); font-weight:600; cursor:pointer;">+ Add
+              New</button>
+          </div>
+          <div class="address-list" id="addressList">
+            <p style="color:var(--gray); font-size:0.9rem;">Loading addresses...</p>
+          </div>
+        </div>
+
+        <!-- TABS -->
+        <h4 style="font-family:var(--font-display); font-size:1.1rem; margin:0 0 16px;">Payment Method</h4>
+        <div class="pay-tabs">
+          <button class="pay-tab active" onclick="switchTab('razorpay', this)">💳 Online Payment</button>
+          <button class="pay-tab" onclick="switchTab('cod', this)">🏠 COD</button>
+        </div>
+
+        <button class="pay-btn" id="payBtn" onclick="processPayment()">
+          Proceed <span id="payBtnAmount">₹0</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADDRESS MODAL -->
+  <div class="modal-overlay" id="addressModal">
+    <div class="modal-content">
+      <h3 style="margin-top:0;">Add New Address</h3>
+      <div class="pay-form">
+        <div class="form-group"><input type="text" id="addName" placeholder="Full Name" /></div>
+        <div class="form-group"><input type="text" id="addPhone" placeholder="Phone Number" /></div>
+        <div class="form-group"><input type="text" id="addStreet" placeholder="Street Address" /></div>
+        <div class="form-group"><input type="text" id="addCity" placeholder="City" /></div>
+        <div style="display:flex; gap:12px;">
+          <div class="form-group" style="flex:1;"><input type="text" id="addState" placeholder="State" /></div>
+          <div class="form-group" style="flex:1;"><input type="text" id="addPincode" placeholder="Pincode" /></div>
+        </div>
+        <div style="display:flex; gap:12px; margin-top:8px;">
+          <button class="pay-btn" style="background:var(--gray); flex:1;"
+            onclick="document.getElementById('addressModal').classList.remove('show')">Cancel</button>
+          <button class="pay-btn" style="flex:1;" onclick="saveAddress()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUCCESS OVERLAY -->
+  <div class="success-overlay" id="successOverlay">
+    <div class="success-card">
+      <div class="success-icon">✓</div>
+      <h2 style="font-family:var(--font-display); font-size:1.8rem;">Order Placed!</h2>
+      <p>Thank you for shopping with us.</p>
+      <div
+        style="font-size:0.8rem; color:var(--gold-dark); background:var(--gold-pale); padding:6px 14px; border-radius:100px; display:inline-block; margin:8px 0 24px; font-weight:600;"
+        id="orderId">Order #VST-000000</div>
+      <br />
+      <button class="pay-btn" style="width:auto; padding:12px 32px;" onclick="window.location.href='orders.html'">View
+        My Orders</button>
+    </div>
+  </div>
+
+  <!-- <section class="store-section">
+    <div class="store-container">
+      <div class="section-head">
+        <p class="section-tag">Visit Us</p>
+        <h2 class="section-title">Our Flagship Store</h2>
+        <div class="gold-divider"></div>
+      </div>
+      <div class="map-frame">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.8767937965!2d72.9731169!3d19.1874893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b936d6a2f141%3A0xe6bf4a3f4e1f7d3a!2sSCANDAL%20MEN&#39;S%20WEAR!5e0!3m2!1sen!2sin!4v1711894000000!5m2!1sen!2sin" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section> -->
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">✦ Scandal ✦</div>
+        <p>Traditional Men's Wear for the discerning Indian man. Rooted in heritage, styled for today.</p>
+      </div>
+      <div class="footer-links">
+        <h5>Quick Links</h5>
+        <a href="index.html">Home</a>
+        <a href="collections.html">Collections</a>
+        <a href="cart.html">Cart</a>
+        <a href="login.html">Login</a>
+      </div>
+      <div class="footer-contact">
+        <h5>Contact</h5>
+        <p>📍 Thane, Maharashtra</p>
+        <p>📞 +91 9820757675</p>
+        <p>✉️ scandal17@gmail.com</p>
+        <p>📸 <a href="https://instagram.com/scandal_traditional" target="_blank">scandal_traditional</a></p>
+        <p>👥 <a href="https://facebook.com/scandal.wear" target="_blank">Facebook</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Scandal. All rights reserved. Made with ♥ in India.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    let activeTab = 'razorpay';
+    let currentTotal = 0;
+    let addresses = [];
+    let selectedAddressId = null;
+    const user = JSON.parse(localStorage.getItem('vastra_user') || 'null');
+
+    // Force Login check immediately
+    if (!user || !user.id) {
+      window.location.href = 'login.html?redirect=payment.html';
+    }
+
+    // Load order summary
+    function loadOrderSummary() {
+      const cart = getCart();
+      const itemsEl = document.getElementById('orderItems');
+      const totalEl = document.getElementById('orderTotal');
+      const payBtnAmt = document.getElementById('payBtnAmount');
+
+      if (!cart || cart.length === 0) {
+        window.location.href = 'cart.html';
+        return;
+      }
+
+      const subtotal = cart.reduce((s, i) => s + (i.price || 0) * (i.qty || 0), 0);
+      const shipping = subtotal >= 999 ? 0 : 99;
+      currentTotal = subtotal + shipping;
+
+      itemsEl.innerHTML = cart.map(item => `
+        <div class="order-item">
+          <span>${item.name} (${item.size || 'M'}) × ${item.qty}</span>
+          <span>₹${((item.price || 0) * (item.qty || 0)).toLocaleString('en-IN')}</span>
+        </div>
+      `).join('') + `
+        <div class="order-item">
+          <span>Shipping</span>
+          <span>${shipping === 0 ? 'FREE' : '₹' + shipping}</span>
+        </div>
+      `;
+      const totalStr = '₹' + currentTotal.toLocaleString('en-IN');
+      totalEl.textContent = totalStr;
+      payBtnAmt.textContent = totalStr;
+    }
+
+    async function loadAddresses() {
+      if (!user || !user.id) return;
+      try {
+        const res = await fetch(`http://localhost:5001/api/user/${user.id}/addresses`);
+        if (res.ok) {
+          addresses = await res.json();
+          renderAddresses();
+        } else {
+          try {
+            const errData = await res.json();
+            console.error("Failed to load addresses:", errData.message);
+          } catch(e) {}
+          const list = document.getElementById('addressList');
+          list.innerHTML = `<p style="color:var(--gray); font-size:0.9rem;">Error loading addresses. Please refresh.</p>`;
+        }
+      } catch (e) {
+        console.error("Error loading addresses", e);
+        const list = document.getElementById('addressList');
+        list.innerHTML = `<p style="color:var(--gray); font-size:0.9rem;">Error connecting to server.</p>`;
+      }
+    }
+
+    function renderAddresses() {
+      const list = document.getElementById('addressList');
+      if (!addresses || addresses.length === 0) {
+        list.innerHTML = `<p style="color:var(--gray); font-size:0.9rem;">No addresses found. Please add a new delivery address.</p>`;
+        return;
+      }
+      
+      // Select first address by default if none selected or if previous selection is gone
+      if (!selectedAddressId || !addresses.find(a => a.id === selectedAddressId)) {
+        selectedAddressId = addresses[0].id;
+      }
+
+      list.innerHTML = addresses.map(addr => `
+        <div class="address-card ${selectedAddressId === addr.id ? 'selected' : ''}" onclick="selectAddress(${addr.id})">
+          <input type="radio" name="addressSelect" ${selectedAddressId === addr.id ? 'checked' : ''} style="margin-top:4px;" />
+          <div class="address-details">
+            <p><strong>${addr.fullName}</strong> ${addr.phone}</p>
+            <p>${addr.street}, ${addr.city}, ${addr.state} - ${addr.pincode}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function selectAddress(id) {
+      selectedAddressId = id;
+      renderAddresses();
+    }
+
+    async function saveAddress() {
+      const fullName = document.getElementById('addName').value;
+      const phone = document.getElementById('addPhone').value;
+      const street = document.getElementById('addStreet').value;
+      const city = document.getElementById('addCity').value;
+      const state = document.getElementById('addState').value;
+      const pincode = document.getElementById('addPincode').value;
+
+      if (!fullName || !phone || !street || !city || !state || !pincode) {
+        showToast('Please fill all fields'); return;
+      }
+
+      try {
+        const res = await fetch(`http://localhost:5001/api/user/${user.id}/addresses`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ fullName, phone, street, city, state, pincode })
+        });
+
+        if (res.ok) {
+          const newAddr = await res.json();
+          document.getElementById('addressModal').classList.remove('show');
+          // Clear inputs
+          ['addName', 'addPhone', 'addStreet', 'addCity', 'addState', 'addPincode'].forEach(id => document.getElementById(id).value = '');
+          
+          showToast('Address saved successfully!');
+          // Automatically select new address
+          selectedAddressId = newAddr.id;
+          await loadAddresses();
+        } else {
+          try {
+            const data = await res.json();
+            showToast(data.message || 'Error saving address');
+          } catch(e) {
+            showToast('Error saving address');
+          }
+        }
+      } catch (e) {
+        showToast('Could not save address. Server error.');
+      }
+    }
+
+    function switchTab(tab, btn) {
+      activeTab = tab;
+      document.querySelectorAll('.pay-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    async function processPayment() {
+      const btn = document.getElementById('payBtn');
+      const address = addresses.find(a => a.id === selectedAddressId);
+
+      if (!address) {
+        showToast('Please select a delivery address'); return;
+      }
+
+      btn.disabled = true; 
+      const originalText = btn.innerHTML;
+      btn.textContent = 'Processing...';
+
+      const orderData = {
+        amount: currentTotal,
+        paymentType: activeTab === 'razorpay' ? 'RAZORPAY' : (activeTab === 'test' ? 'TEST' : 'COD'),
+        customerInfo: { name: address.fullName, address: address.street +', '+ address.city, phone: address.phone },
+        userId: user.id,
+        addressId: address.id,
+        items: getCart()
+      };
+
+      try {
+        const res = await fetch('http://localhost:5001/api/payment/create-order', {
+          method: 'POST', 
+          headers: { 'Content-Type': 'application/json' }, 
+          body: JSON.stringify(orderData)
+        });
+        const data = await res.json();
+        if (!data.success) throw new Error(data.message || 'Error processing order');
+
+        if (activeTab === 'cod' || activeTab === 'test') showSuccessOverlay(data.orderId);
+        else openRazorpay(data.order, data.dbOrderId, address.fullName, address.phone);
+      } catch (err) {
+        showToast(err.message); 
+        btn.disabled = false; 
+        btn.innerHTML = originalText;
+      }
+    }
+
+    function openRazorpay(rzpOrder, dbOrderId, name, phone) {
+      const options = {
+        key: 'rzp_test_SXYLXKXFnZ6HVJ', 
+        amount: rzpOrder.amount, 
+        currency: "INR", 
+        name: "Scandal",
+        description: "Order Payment", 
+        order_id: rzpOrder.id,
+        handler: async function (response) {
+          try {
+            const verifyRes = await fetch('http://localhost:5001/api/payment/verify', {
+              method: 'POST', 
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ 
+                razorpay_order_id: response.razorpay_order_id, 
+                razorpay_payment_id: response.razorpay_payment_id, 
+                razorpay_signature: response.razorpay_signature, 
+                dbOrderId 
+              })
+            });
+            const valid = await verifyRes.json();
+            if (valid.success) showSuccessOverlay(dbOrderId);
+            else showToast("Payment verification failed");
+          } catch(e) { showToast("Server error during verification"); }
+        },
+        prefill: { name, contact: phone }, 
+        theme: { color: "#C9A84C" }
+      };
+      const rzp = new Razorpay(options);
+      rzp.on('payment.failed', function (r){ 
+        showToast("Payment failed: " + r.error.description); 
+        document.getElementById('payBtn').disabled = false; 
+        // We don't call loadOrderSummary here to avoid jumping page if possible, 
+        // but let's reset the button text.
+        document.getElementById('payBtn').innerHTML = `Proceed <span id="payBtnAmount">₹${currentTotal.toLocaleString('en-IN')}</span>`;
+      });
+      rzp.open();
+    }
+
+    function showSuccessOverlay(orderId) {
+      localStorage.removeItem('vastra_cart'); updateCartCount();
+      document.getElementById('orderId').textContent = 'Order #VST-' + orderId;
+      document.getElementById('successOverlay').classList.add('show');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadOrderSummary();
+      loadAddresses();
+    });
+  </script>
+</body>
+
+</html>
