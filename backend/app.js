@@ -10,9 +10,11 @@
   const userRoutes = require('./routes/user');
   const orderRoutes = require('./routes/orders');
   const reviewRoutes = require('./routes/reviews');
+  const adminRoutes = require('./routes/admin');
   require('./models/Order');
   require('./models/Address');
   require('./models/Review');
+  require('./models/User'); // ensure user is initialized
 
   const app = express();
 
@@ -27,6 +29,7 @@
   app.use('/api/user', userRoutes);
   app.use('/api/orders', orderRoutes);
   app.use('/api/reviews', reviewRoutes);
+  app.use('/api/admin', adminRoutes);
 
   app.get('/', (req, res) => res.json({ message: 'Vastra API running ✦' }));
 

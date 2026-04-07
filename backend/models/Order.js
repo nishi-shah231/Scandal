@@ -31,6 +31,10 @@ const Order = sequelize.define('Order', {
     type: DataTypes.STRING, // 'Pending', 'Success', 'Failed'
     defaultValue: 'Pending'
   },
+  orderStatus: {
+    type: DataTypes.STRING, // 'Processing', 'Shipped', 'Delivered'
+    defaultValue: 'Processing'
+  },
   razorpayOrderId: {
     type: DataTypes.STRING,
     allowNull: true
