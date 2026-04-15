@@ -2,6 +2,7 @@ const express = require('express');
 const Razorpay = require('razorpay');
 const crypto = require('crypto');
 const { Order } = require('../models/Order');
+const { calculateOrderAmount } = require('../utils/helpers');
 
 const router = express.Router();
 
@@ -22,7 +23,7 @@ router.post('/create-order', async (req, res) => {
       const newOrder = await Order.create({
         customerInfo,
         items,
-        totalAmount: Math.round(amount), // Ensure it's an integer
+        totalAmount: calculateOrderAmount(amount),
         paymentType: 'COD',
         paymentStatus: 'Pending (COD)',
         userId
@@ -32,7 +33,7 @@ router.post('/create-order', async (req, res) => {
 
     // RAZORPAY
     const options = {
-      amount: Math.round(amount * 100), // Razorpay expects amount in paise
+      amount: calculateOrderAmount(amount * 100), // Razorpay expects amount in paise
       currency: currency || 'INR',
       receipt: receipt || `rcpt_${Date.now()}`
     };
@@ -44,7 +45,7 @@ router.post('/create-order', async (req, res) => {
       const dbOrder = await Order.create({
         customerInfo,
         items,
-        totalAmount: Math.round(amount), // keep in INR
+        totalAmount: calculateOrderAmount(amount), // keep in INR
         paymentType: 'RAZORPAY',
         paymentStatus: 'Awaiting Payment',
         razorpayOrderId: order.id,
