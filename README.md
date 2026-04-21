@@ -4,16 +4,6 @@ A high-fidelity, full-stack E-Commerce platform for traditional Indian menswear,
 
 ---
 
-## 👥 Team Members
-*   **Nishi Shah** (16010125808)
-*   **Khush Satra** (16010125815)
-*   **Harshit Panchal** (16010125810)
-
-**KJ Somaiya School of Engineering**  
-Department of Computer Engineering
-
----
-
 ## 🚀 Key Features
 
 ### 🛍️ Core E-Commerce
@@ -53,7 +43,7 @@ Scandal-main/
 │   ├── collections.html    # Product catalog with filters
 │   ├── admin.html          # Admin Dashboard
 │   ├── ai-stylist.html     # AI recommendation interface
-│   ├── css/                # Custom CSS (Somaiya Modern Theme)
+│   ├── css/                # Custom CSS (Modern Theme)
 │   └── js/                 # Frontend logic (Auth, Cart, AI)
 ├── backend/
 │   ├── config/             # Database & environment config
@@ -62,7 +52,7 @@ Scandal-main/
 │   ├── middleware/         # Auth & error handling
 │   └── app.js              # Server entry point
 ├── ppt-images/             # Presentation screenshots
-└── SCANDAL_PPT.html        # Project presentation deck
+└── ppt.html                # Project presentation deck
 ```
 
 ---
@@ -97,5 +87,5 @@ Scandal-main/
 
 ---
 
-## 📄 License
-This project is developed for the **Mid-Term Evaluation** of the Web Programming Laboratory course at KJ Somaiya School of Engineering.
+## 📄 Project Status
+This project was developed as a comprehensive full-stack e-commerce solution for the **Mid-Term Evaluation** of the Web Programming Laboratory.
