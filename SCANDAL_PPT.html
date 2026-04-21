@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scandal - Somaiya Presentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #000000;
+            --maroon: #A31A26;
+            --bright-red: #ED1C24;
+            --blue: #004F9F;
+            --border: #e0e0e0;
+            --transition: all 0.4s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .presentation {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            z-index: 100;
+        }
+
+        .logo-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-left img {
+            height: 60px;
+        }
+
+        .logo-right {
+            background: var(--blue);
+            color: white;
+            padding: 10px 20px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            border-radius: 2px;
+        }
+
+        .slide-container {
+            flex: 1;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .slide-title {
+            text-align: center;
+        }
+
+        .slide-title h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        .students {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .college {
+            margin-top: 1.5rem;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .slide-content {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .slide-header {
+            margin-bottom: 2rem;
+            border-bottom: 4px solid var(--maroon);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .slide-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .card h3 {
+            font-size: 1.6rem;
+            color: var(--maroon);
+            margin-bottom: 1rem;
+        }
+
+        .card p,
+        .card li {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li::before {
+            content: "■";
+            color: var(--maroon);
+            display: inline-block;
+            width: 1.2em;
+            margin-left: -1.2em;
+        }
+
+        .image-container {
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            max-height: 400px;
+        }
+
+        .image-container img {
+            width: 100%;
+            display: block;
+            object-fit: contain;
+        }
+
+        footer {
+            height: 70px;
+            display: flex;
+            width: 100%;
+        }
+
+        .footer-maroon {
+            flex: 8.5;
+            background: var(--maroon);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding-left: 3rem;
+            color: white;
+            font-weight: 600;
+        }
+
+        .footer-red {
+            flex: 1.5;
+            background: var(--bright-red);
+            height: 100%;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 90px;
+            right: 2rem;
+            display: flex;
+            gap: 10px;
+            z-index: 200;
+        }
+
+        button {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-weight: 600;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background: var(--maroon);
+        }
+
+        .slide-num {
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="presentation">
+        <header>
+            <div class="logo-left">
+                <img src="https://www.somaiya.edu/assets/university/img/somaiya-logo.png" alt="Somaiya">
+            </div>
+            <div class="logo-right">Somaiya TRUST</div>
+        </header>
+
+        <div class="slide-container">
+            <!-- SLIDE 1 -->
+            <div class="slide slide-title active">
+                <h1>Scandal-Traditional Men's Wear<br>E-Commerce Platform</h1>
+                <div class="students">
+                    <p>Nishi Shah - 16010125808</p>
+                    <p>Khush Satra - 16010125815</p>
+                    <p>Harshit Panchal - 16010125810</p>
+                    <p class="college">KJ Somaiya School of Engineering</p>
+                </div>
+            </div>
+
+            <!-- SLIDE 2 -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <h2>Problem Statement</h2>
+                    </div>
+                    <div class="grid">
+                        <div class="card">
+                            <p>The traditional Indian men’s wear industry is a ₹40,000+ Crore market, yet specialized boutiques like Scandal (Thane) remain restricted to local foot traffic due to a lack of digital infrastructure. Without an online presence, 
+                                customers are forced to visit physically, while the absence of size guidance and secure remote payment options leads to
+                                 high return rates and lost growth potential. To address this, there is a clear need for a full-stack, 
+                                 responsive e-commerce platform that digitizes the shopping experience offering personalized AI-driven recommendations and secure checkouts to help local heritage brands scale 
+                                 sustainably in the modern economy.</p>
+
+                            <p><strong>Goal 12:</strong> Promoting responsible production by supporting local weavers
+                                and reducing waste via AI sizing.</p>
+                        </div>
+                        <div class="card">
+                            <div class="image-container"><img src="ppt-images/hero.png"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3 -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <h2>Objectives</h2>
+                    </div>
+                    <div class="grid">
+                        <div class="card">
+                            <ul>
+                                <li>Develop a premium responsive UI/UX.</li>
+                                <li>Integrate AI Stylist for personalized matching.</li>
+                                <li>Use PostgreSQL for scalable data management.</li>
+                                <li>Implement AI Size Consultant to reduce returns.</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <div class="image-container"><img src="ppt-images/featured_cards.png"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 4 -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <h2>Frontend Design: Auth</h2>
+                    </div>
+                    <div class="grid">
+                        <div class="card">
+                            <p>Secure login and registration using JWT authentication and encrypted session handling.
+                            </p>
+                            <ul>
+                                <li>Secure User Onboarding</li>
+                                <li>Persistent Login State</li>
+                                <li>Interactive Form Validation</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <div class="image-container"><img src="ppt-images/ui_mockup.png"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 5 -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <h2>Catalogue & Search</h2>
+                    </div>
+                    <div class="grid">
+                        <div class="card">
+                            <p>Dynamic product discovery with high-resolution imagery and advanced filtering.</p>
+                            <ul>
+                                <li>Category-specific Filters</li>
+                                <li>Real-time Stock Tracking</li>
+                                <li>Optimized Search Logic</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <div class="image-container"><img src="ppt-images/collections.png"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 6 -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <h2>AI Wardrobe Stylist</h2>
+                    </div>
+                    <div class="grid">
+                        <div class="card">
+                            <p>Intelligent recommendation engine suggesting outfits based on occasion and user style.
+                            </p>
+                            <ul>
+                                <li>Occasion-based Matching</li>
+                                <li>Visual Style Analysis</li>
+                                <li>Personalized Recommendations</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <div class="image-container"><img src="ppt-images/ai_stylist.png"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 7 -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <h2>AI Size Consultant</h2>
+                    </div>
+                    <div class="grid">
+                        <div class="card">
+                            <p>Predictive sizing tool ensuring a perfect fit, significantly reducing fashion return
+                                rates.</p>
+                            <ul>
+                                <li>Metric & Imperial Support</li>
+                                <li>Body Type Fit Analysis</li>
+                                <li>High-Confidence Fit Score</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <div class="image-container"><img src="ppt-images/size_consultant.png"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 8 -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <h2>Database Schema</h2>
+                    </div>
+                    <div class="grid">
+                        <div class="card">
+                            <h3>PostgreSQL & pgAdmin</h3>
+                            <p>Highly optimized relational schema for data integrity and high-speed retrieval.</p>
+                            <ul>
+                                <li>3NF Normalized Design</li>
+                                <li>Sequelize ORM Relationships</li>
+                                <li>ACID Compliant Transactions</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <div class="image-container"><img src="ppt-images/db_schema.png"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 9 -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <h2>Admin Dashboard</h2>
+                    </div>
+                    <div class="grid">
+                        <div class="card">
+                            <p>Full-cycle inventory and order management system for platform administrators.</p>
+                            <ul>
+                                <li>Inventory Level Alerts</li>
+                                <li>Order Fulfillment Tracking</li>
+                                <li>User Activity Monitoring</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <div class="image-container"><img src="ppt-images/products.png"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 10 -->
+            <div class="slide slide-title">
+                <h1 style="font-size: 5rem;">Thank You</h1>
+                <p style="font-size: 1.5rem; color: var(--maroon);">Questions?</p>
+                <p style="margin-top: 2rem; opacity: 0.6;">KJ Somaiya School of Engineering</p>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-maroon">
+                KJ Somaiya School of Engineering
+                <div class="slide-num" id="slideNum">1</div>
+            </div>
+            <div class="footer-red"></div>
+        </footer>
+    </div>
+
+    <div class="controls">
+        <button id="prevBtn">Previous</button>
+        <button id="nextBtn">Next</button>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const slideNum = document.getElementById('slideNum');
+        let currentSlide = 0;
+
+        function updateSlide() {
+            slides.forEach((s, i) => s.classList.toggle('active', i === currentSlide));
+            slideNum.innerText = currentSlide + 1;
+        }
+
+        nextBtn.onclick = () => { if (currentSlide < slides.length - 1) { currentSlide++; updateSlide(); } }
+        prevBtn.onclick = () => { if (currentSlide > 0) { currentSlide--; updateSlide(); } }
+        document.onkeydown = (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') nextBtn.onclick();
+            if (e.key === 'ArrowLeft') prevBtn.onclick();
+        }
+        updateSlide();
+    </script>
+</body>
+
+</html>

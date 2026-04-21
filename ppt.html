@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scandal - Somaiya Evaluation PPT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --maroon: #A31A26;
+            --bright-red: #ED1C24;
+            --blue: #004F9F;
+            --grey-light: #f8f9fa;
+            --border: #e9ecef;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0f2f5;
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .presentation-frame {
+            width: 1280px;
+            height: 720px;
+            background: var(--bg);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* HEADER */
+        header {
+            padding: 1.2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            background: white;
+            z-index: 10;
+        }
+
+        .logo-left {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .logo-left img { height: 60px; }
+
+        .logo-right {
+            background: var(--blue);
+            color: white;
+            padding: 10px 22px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        /* SLIDE AREA */
+        .slide-container {
+            flex: 1;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 4rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(20px);
+            transition: var(--transition);
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        /* TITLE SLIDE */
+        .slide-title-page {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .slide-title-page h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .slide-title-page h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: var(--maroon);
+        }
+
+        .student-info {
+            background: var(--grey-light);
+            padding: 2rem 3rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin-top: 1rem;
+        }
+
+        .student-info p {
+            font-size: 1.2rem;
+            color: #444;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* CONTENT STYLES */
+        .slide-header {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .slide-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--maroon);
+        }
+
+        .slide-header .line {
+            flex: 1;
+            height: 2px;
+            background: var(--border);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 2rem;
+            align-items: start;
+            flex: 1;
+            min-height: 0;
+        }
+
+        .content-card {
+            background: var(--grey-light);
+            border-radius: 16px;
+            padding: 1.2rem 1.8rem;
+            border: 1px solid var(--border);
+            height: auto;
+            max-height: 100%;
+            overflow-y: auto;
+        }
+
+        .content-card h3 {
+            font-size: 1.4rem;
+            color: var(--maroon);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .content-card p, .content-card li {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #444;
+            margin-bottom: 0.8rem;
+        }
+
+        ul { list-style: none; }
+        ul li::before {
+            content: '✦';
+            color: var(--maroon);
+            margin-right: 12px;
+            font-weight: bold;
+        }
+
+        .image-frame {
+            width: 100%;
+            max-height: 440px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            background: white;
+        }
+
+        .image-frame img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* DB SCHEMA VIZ */
+        .db-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .db-table {
+            background: white;
+            border: 2px solid var(--maroon);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .db-table-header {
+            background: var(--maroon);
+            color: white;
+            padding: 8px 15px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .db-table-body { padding: 10px 15px; }
+        .db-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.9rem;
+        }
+
+        /* FOOTER */
+        footer {
+            height: 60px;
+            display: flex;
+            width: 100%;
+        }
+
+        .f-maroon {
+            flex: 8.5;
+            background: var(--maroon);
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 0 3rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .f-red {
+            flex: 1.5;
+            background: var(--bright-red);
+            position: relative;
+        }
+
+        .slide-number {
+            position: absolute;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* CONTROLS */
+        .controls {
+            position: fixed;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 10px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .nav-btn:hover {
+            background: var(--maroon);
+            color: white;
+            border-color: var(--maroon);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="presentation-frame">
+        <header>
+            <div class="logo-left">
+                <img src="https://www.somaiya.edu/assets/university/img/somaiya-logo.png" alt="Somaiya">
+            </div>
+            <div class="logo-right">Somaiya TRUST</div>
+        </header>
+
+        <div class="slide-container">
+            
+            <!-- SLIDE 1: TITLE -->
+            <div class="slide slide-title-page active">
+                <h1>Scandal – Traditional Men's Wear<br>E-Commerce Platform</h1>
+                <div class="student-info">
+                    <p>Nishi Shah - 16010125808</p>
+                    <p>Khush Satra - 16010125815</p>
+                    <p>Harshit Panchal - 16010125810</p>
+                    <p style="margin-top: 1rem; font-weight: 700; color: var(--maroon);">KJ Somaiya School of Engineering</p>
+                    <p style="font-size: 0.9rem; opacity: 0.7;">Web Programming Laboratory | Mini Project Mid-Term Evaluation</p>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: PROBLEM STATEMENT -->
+            <div class="slide">
+                <div class="slide-header">
+                    <h2>Problem Statement</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="grid-2">
+                    <div class="content-card">
+                        <h3>📍 The Challenge</h3>
+                        <p>The traditional Indian men’s wear industry is a ₹40,000+ Crore market, yet specialized boutiques like Scandal (Thane) remain restricted to local foot traffic due to a lack of digital infrastructure. Without an online presence, 
+                                customers are forced to visit physically, while the absence of size guidance and secure remote payment options leads to
+                                 high return rates and lost growth potential. To address this, there is a clear need for a full-stack, 
+                                 responsive e-commerce platform that digitizes the shopping experience offering personalized AI-driven recommendations and secure checkouts to help local heritage brands scale 
+                                 sustainably in the modern economy.</p>
+                        <ul>
+                            <li>No remote ordering or catalog browsing</li>
+                            <li>High return rates due to sizing uncertainty</li>
+                            <li>Limited reach beyond local geography</li>
+                        </ul>
+                        <div style="margin-top: 1.5rem; background: #e7f3ef; padding: 1rem; border-radius: 8px; border-left: 4px solid #2d8a47;">
+                            <p style="margin-bottom: 0; font-size: 1rem; color: #1a5c2a;"><strong>SDG 12:</strong> Promoting responsible production by reducing sizing returns and supporting local heritage craftsmanship.</p>
+                        </div>
+                    </div>
+                    <div class="image-frame">
+                        <img src="ppt-images/hero.png" alt="Hero">
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3: OBJECTIVES -->
+            <div class="slide">
+                <div class="slide-header">
+                    <h2>Project Objectives</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="grid-2">
+                    <div class="content-card">
+                        <ul>
+                            <li><strong>Premium UI/UX:</strong> Design a high-fidelity, responsive frontend using Vanilla JS and CSS3 with glassmorphism.</li>
+                            <li><strong>Robust Backend:</strong> Implement a scalable <strong>Node.js & Express</strong> server with secure authentication.</li>
+                            <li><strong>PostgreSQL Database:</strong> Migrate to a relational architecture for superior data integrity and ACID compliance.</li>
+                            <li><strong>AI Assistance:</strong> Build an AI Wardrobe Stylist and a Size Consultant to enhance the user shopping experience.</li>
+                        </ul>
+                    </div>
+                    <div class="image-frame">
+                        <img src="ppt-images/featured_cards.png" alt="Features">
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 4: TECH STACK -->
+            <div class="slide">
+                <div class="slide-header">
+                    <h2>Technical Architecture</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="grid-2">
+                    <div style="display: flex; flex-direction: column; gap: 0.4rem; justify-content: center;">
+                        <div class="content-card" style="border-left: 5px solid var(--maroon); padding: 0.6rem 1rem;">
+                            <h3 style="font-size: 1rem; margin-bottom: 0.2rem;">🎨 Frontend</h3>
+                            <ul style="font-size: 0.78rem;">
+                                <li>HTML5 – Semantic structure & SEO</li>
+                                <li>CSS3 – Custom variables, animations, glassmorphism</li>
+                                <li>Vanilla JavaScript – DOM, LocalStorage, fetch API</li>
+                                <li>Google Fonts – Playfair Display, Inter</li>
+                            </ul>
+                        </div>
+                        <div class="content-card" style="border-left: 5px solid var(--maroon); padding: 0.6rem 1rem;">
+                            <h3 style="font-size: 1rem; margin-bottom: 0.2rem;">⚙️ Backend</h3>
+                            <ul style="font-size: 0.78rem;">
+                                <li>Node.js + Express.js – REST API server</li>
+                                <li>PostgreSQL + Sequelize – Relational database</li>
+                                <li>JWT – JSON Web Token authentication</li>
+                                <li>bcryptjs – Password hashing & security</li>
+                            </ul>
+                        </div>
+                        <div class="content-card" style="border-left: 5px solid var(--maroon); padding: 0.6rem 1rem;">
+                            <h3 style="font-size: 1rem; margin-bottom: 0.2rem;">💳 Integrations</h3>
+                            <ul style="font-size: 0.78rem;">
+                                <li>Razorpay – Live payment gateway (UPI/Card/Net Banking)</li>
+                                <li>Cash on Delivery – COD payment option</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="content-card" style="background: #A31A26; display: flex; flex-direction: column; justify-content: center; padding: 1rem;">
+                        <h3 style="color: white; justify-content: center; margin-bottom: 0.8rem; font-size: 1.2rem;">System Architecture</h3>
+                        <div style="background: #fdfdfd; padding: 1rem; border-radius: 12px; border: 1px dashed var(--border); text-align: center; font-family: 'Courier New', Courier, monospace; line-height: 1.6; font-size: 0.8rem;">
+                            <p><strong>Browser (HTML/CSS/JS)</strong></p>
+                            <p>⬇ fetch() REST API calls</p>
+                            <p><strong>Express.js Server (Node.js)</strong></p>
+                            <p>⬇ Sequelize ORM</p>
+                            <p><strong>PostgreSQL Database</strong></p>
+                            <p>+ JWT Auth Layer</p>
+                            <p>+ Razorpay SDK</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 5: FRONTEND - AUTH & HOME -->
+            <div class="slide">
+                <div class="slide-header">
+                    <h2>UI Design: Home & Auth</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="grid-2">
+                    <div class="image-frame">
+                        <img src="ppt-images/ui_mockup.png" alt="Auth">
+                    </div>
+                    <div class="content-card">
+                        <h3>Login & Registration</h3>
+                        <p>Secure authentication flow with role-based access control (Admin/User). Features persistent sessions and client-side validation.</p>
+                        <ul>
+                            <li>Clean, semantic HTML5 structure</li>
+                            <li>Premium Dark/Light mode support</li>
+                            <li>Interactive form feedback</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 6: CATALOGUE & SEARCH -->
+            <div class="slide">
+                <div class="slide-header">
+                    <h2>Catalogue & Navigation</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="grid-2">
+                    <div class="content-card">
+                        <h3>Dynamic Catalogue</h3>
+                        <p>Explore traditional wear through high-resolution galleries with advanced sorting and filtering logic.</p>
+                        <ul>
+                            <li>Real-time search functionality</li>
+                            <li>Category-based filtering</li>
+                            <li>Responsive grid layouts</li>
+                        </ul>
+                    </div>
+                    <div class="image-frame">
+                        <img src="ppt-images/collections.png" alt="Collections">
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 7: INTELLIGENT FEATURES -->
+            <div class="slide">
+                <div class="slide-header">
+                    <h2>AI Wardrobe Stylist</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="grid-2">
+                    <div class="image-frame">
+                        <img src="ppt-images/ai_stylist.png" alt="Stylist">
+                    </div>
+                    <div class="content-card">
+                        <h3>Smart Curation</h3>
+                        <p>Personalized recommendation engine suggesting complete outfits based on occasion and user preference.</p>
+                        <ul>
+                            <li>Occasion-based matching</li>
+                            <li>Interactive selection flow</li>
+                            <li>Reduced shopping friction</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 8: CORE FUNCTIONAL FEATURES -->
+            <div class="slide">
+                <div class="slide-header">
+                    <h2>Core Functional Features</h2>
+                    <div class="line"></div>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0.6rem; height: 100%; justify-content: center;">
+                    <div class="content-card" style="border-left: 5px solid var(--maroon); padding: 0.8rem 1.5rem;">
+                        <h3 style="margin-bottom: 0.3rem; font-size: 1.2rem;">🛍️ Collections Features</h3>
+                        <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem; font-size: 0.9rem;">
+                            <li>Filter by Category: Traditional / Formal / T-Shirts</li>
+                            <li>Filter by Price: Under ₹1K / ₹1K–₹2K / Over ₹2K</li>
+                            <li>Sort: Featured / Price Low→High / High→Low</li>
+                            <li>Dynamic product count; empty state with reset</li>
+                        </ul>
+                    </div>
+                    <div class="content-card" style="border-left: 5px solid var(--maroon); padding: 0.8rem 1.5rem;">
+                        <h3 style="margin-bottom: 0.3rem; font-size: 1.2rem;">🛒 Cart & Checkout</h3>
+                        <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem; font-size: 0.9rem;">
+                            <li>Persistent cart with LocalStorage</li>
+                            <li>Multi-step checkout: Address → Payment → Confirm</li>
+                            <li>Razorpay payment + COD option</li>
+                            <li>JWT-protected — login required for checkout</li>
+                        </ul>
+                    </div>
+                    <div class="content-card" style="border-left: 5px solid var(--maroon); padding: 0.8rem 1.5rem;">
+                        <h3 style="margin-bottom: 0.3rem; font-size: 1.2rem;">👤 Authentication</h3>
+                        <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem; font-size: 0.9rem;">
+                            <li>Register + Login forms with client-side validation</li>
+                            <li>bcrypt password hashing + JWT tokens</li>
+                            <li>User avatar in navbar with dropdown (Orders / Logout)</li>
+                            <li>Session persistence & Role-based Routing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 9: DATABASE SCHEMA (POSTGRES) -->
+            <div class="slide">
+                <div class="slide-header">
+                    <h2>Database Schema – PostgreSQL Table Design</h2>
+                    <div class="line"></div>
+                </div>
+                
+                <!-- Table Grid -->
+                <div class="db-grid" style="margin-top: 1rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+                    <div class="db-table" style="border: 1px solid var(--maroon); border-radius: 8px; overflow: hidden; background: white;">
+                        <div class="db-table-header" style="background: var(--maroon); color: white; padding: 0.5rem 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
+                            👤 Users Table
+                        </div>
+                        <div class="db-table-body" style="padding: 0.8rem; font-size: 0.8rem; line-height: 1.8;">
+                            <div style="display: flex; justify-content: space-between;"><strong>PK id</strong><span>UUID</span></div>
+                            <div style="display: flex; justify-content: space-between;"><strong>name</strong><span>VARCHAR</span></div>
+                            <div style="display: flex; justify-content: space-between;"><strong>email</strong><span>VARCHAR (UNIQUE)</span></div>
+                            <div style="display: flex; justify-content: space-between;"><strong>password</strong><span>VARCHAR (HASH)</span></div>
+                            <div style="display: flex; justify-content: space-between;"><strong>createdAt</strong><span>TIMESTAMP</span></div>
+                        </div>
+                    </div>
+
+                    <div class="db-table" style="border: 1px solid var(--maroon); border-radius: 8px; overflow: hidden; background: white;">
+                        <div class="db-table-header" style="background: var(--maroon); color: white; padding: 0.5rem 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
+                            📦 Products Table
+                        </div>
+                        <div class="db-table-body" style="padding: 0.8rem; font-size: 0.8rem; line-height: 1.8;">
+                            <div style="display: flex; justify-content: space-between;"><strong>PK id</strong><span>INT</span></div>
+                            <div style="display: flex; justify-content: space-between;"><strong>name</strong><span>VARCHAR</span></div>
+                            <div style="display: flex; justify-content: space-between;"><strong>price</strong><span>DECIMAL</span></div>
+                            <div style="display: flex; justify-content: space-between;"><strong>category</strong><span>VARCHAR</span></div>
+                            <div style="display: flex; justify-content: space-between;"><strong>stock</strong><span>INT</span></div>
+                        </div>
+                    </div>
+
+                    <div class="db-table" style="border: 1px solid var(--maroon); border-radius: 8px; overflow: hidden; background: white;">
+                        <div class="db-table-header" style="background: var(--maroon); color: white; padding: 0.5rem 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
+                            🛒 Orders Table
+                        </div>
+                        <div class="db-table-body" style="padding: 0.8rem; font-size: 0.8rem; line-height: 1.8;">
+                            <div style="display: flex; justify-content: space-between;"><strong>PK id</strong><span>UUID</span></div>
+                            <div style="display: flex; justify-content: space-between;"><strong>FK userId</strong><span>UUID (FK)</span></div>
+                            <div style="display: flex; justify-content: space-between;"><strong>total</strong><span>DECIMAL</span></div>
+                            <div style="display: flex; justify-content: space-between;"><strong>status</strong><span>VARCHAR</span></div>
+                            <div style="display: flex; justify-content: space-between;"><strong>createdAt</strong><span>TIMESTAMP</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Entity Relationships Section -->
+                <div style="margin-top: 1.5rem;">
+                    <h3 style="font-size: 0.95rem; color: var(--maroon); margin-bottom: 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem;">Entity Relationships</h3>
+                    <div style="display: flex; gap: 1rem; justify-content: center; align-items: center; background: #fafafa; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border);">
+                        <div style="display: flex; align-items: center; gap: 0.3rem;">
+                            <div style="background: var(--maroon); color: white; padding: 0.3rem 0.8rem; border-radius: 4px; font-weight: 600; font-size: 0.8rem;">👤 User</div>
+                            <div style="color: var(--maroon); font-weight: 700; font-size: 0.75rem;">1 ⟶ Many</div>
+                            <div style="background: var(--maroon); color: white; padding: 0.3rem 0.8rem; border-radius: 4px; font-weight: 600; font-size: 0.8rem;">🛒 Order</div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.4rem;">
+                            <div style="background: var(--maroon); color: white; padding: 0.3rem 0.8rem; border-radius: 4px; font-weight: 600; font-size: 0.8rem;">📦 Product</div>
+                            <div style="color: var(--maroon); font-weight: 700; font-size: 0.75rem;">1 ⟶ Many</div>
+                            <div style="background: var(--maroon); color: white; padding: 0.3rem 0.8rem; border-radius: 4px; font-weight: 600; font-size: 0.8rem;">📋 Order Item</div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.4rem;">
+                            <div style="background: var(--maroon); color: white; padding: 0.3rem 0.8rem; border-radius: 4px; font-weight: 600; font-size: 0.8rem;">👤 User</div>
+                            <div style="color: var(--maroon); font-weight: 700; font-size: 0.75rem;">1 ⟶ Many</div>
+                            <div style="background: var(--maroon); color: white; padding: 0.3rem 0.8rem; border-radius: 4px; font-weight: 600; font-size: 0.8rem;">⭐ Review</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1rem; padding: 0.8rem; background: #fff5f5; border-radius: 8px; border-left: 4px solid var(--maroon);">
+                    <p style="font-size: 0.85rem; margin: 0;"><strong>Relational Architecture:</strong> Utilizing <strong>PostgreSQL</strong> via <strong>Sequelize ORM</strong> for ACID compliance and normalized schema design (3NF).</p>
+                </div>
+            </div>
+
+            <!-- SLIDE 10: ADMIN SIDE -->
+            <div class="slide">
+                <div class="slide-header">
+                    <h2>Admin Dashboard Overview</h2>
+                    <div class="line"></div>
+                </div>
+                <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
+                    <div class="image-frame" style="width: 100%; max-height: 500px; box-shadow: var(--shadow);">
+                        <img src="ppt-images/admin_dashboard.png" alt="Admin Dashboard" style="width: 100%; height: auto; object-fit: contain;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 11: CONCLUSION -->
+            <div class="slide">
+                <div class="slide-header">
+                    <h2>Conclusion</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="grid-2">
+                    <div class="content-card">
+                        <h3>Project Summary</h3>
+                        <p>Scandal Men's Wear has successfully transitioned from a local boutique to a full-stack digital platform, bridging the gap between heritage fashion and modern e-commerce.</p>
+                        <ul>
+                            <li><strong>Technical Integration:</strong> Seamlessly unified Node.js, PostgreSQL, and AI-driven consultants.</li>
+                            <li><strong>Market Impact:</strong> Empowered local weavers and reduced operational waste.</li>
+                            <li><strong>Future Ready:</strong> Modular architecture allows for seamless scaling and feature expansion.</li>
+                        </ul>
+                    </div>
+                    <div class="content-card" style="border-left: 5px solid var(--maroon);">
+                        <h3>Key Takeaways</h3>
+                        <ul style="font-size: 1rem;">
+                            <li><strong>Scalability:</strong> Relational schema handles complex product relations efficiently.</li>
+                            <li><strong>UX Innovation:</strong> AI Stylist significantly enhances personalized shopping.</li>
+                            <li><strong>Sustainability:</strong> Direct alignment with <strong>SDG 12</strong> through responsible production.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 12: THANK YOU -->
+            <div class="slide slide-title-page">
+                <h1 style="font-size: 5rem;">Thank You</h1>
+                <p style="font-size: 1.5rem; color: var(--maroon); font-weight: 700;">Scandal Men's Wear Mid-Term Evaluation</p>
+                <p style="margin-top: 2rem; opacity: 0.6;">KJ Somaiya School of Engineering · Department of Computer Engineering</p>
+            </div>
+
+        </div>
+
+        <footer>
+            <div class="f-maroon">KJ Somaiya School of Engineering</div>
+            <div class="f-red">
+                <div class="slide-number" id="slideNum">1 / 12</div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="controls">
+        <button class="nav-btn" onclick="prevSlide()">Previous</button>
+        <button class="nav-btn" onclick="nextSlide()">Next</button>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let current = 0;
+
+        function updateSlide() {
+            slides.forEach((s, i) => s.classList.toggle('active', i === current));
+            document.getElementById('slideNum').innerText = `${current + 1} / ${slides.length}`;
+        }
+
+        function nextSlide() {
+            if (current < slides.length - 1) {
+                current++;
+                updateSlide();
+            }
+        }
+
+        function prevSlide() {
+            if (current > 0) {
+                current--;
+                updateSlide();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+    </script>
+</body>
+</html>
